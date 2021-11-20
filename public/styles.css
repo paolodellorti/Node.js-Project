@@ -109,3 +109,13 @@
       font-size: 1.2em;
       cursor: pointer;
     }
+
+    .UploadError {
+      color: crimson;
+      font-size: 0.8em;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: crimson;
+      opacity: 1; /* Firefox */
+    }

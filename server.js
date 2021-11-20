@@ -4,8 +4,6 @@ const reportsRoutes = require('./routes/reportsRoutes');
 
 const server = express();
 
-//funziona con postman ma non nel browser daiiiiiiiiiiiiiii
-
 // ----- SETTINGS -----
 server.set('view engine', 'ejs');
 server.set('port', process.env.PORT || 8080);

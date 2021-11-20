@@ -5,12 +5,15 @@
   <%- include("../partials/nav.ejs") %>
 
   <div class="create-blog content">
-    <form action="/reports/insertReport" method="post" enctype=”multipart/form-data”>
+    <form action="/reports/insertReport" method="post" enctype="multipart/form-data">
       <label for="title">Place:</label>
       <input type="text" id="title" name="place" required>
       <label for="snippet">Snippet:</label>
-      <input type="text" id="snippet" name="snippet" required>
+      <input type="text" id="snippet" name="snippet" pl required>
       <input type="file"  name="image" accept='image/*'>
+      <% if (err) { %>
+        <p class="uploadError"><%= err %></p>
+      <% } %>
       <input type="submit" value="Upload" />
     </form>
   </div>

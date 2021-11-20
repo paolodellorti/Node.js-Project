@@ -1,4 +1,4 @@
-const db = require('../models/mysqlConnection');
+const db = require('../helpers/mysqlConnection');
 
 const all_reports_GET = (req, res) => {
     db.query('SELECT * FROM reports ORDER BY report_time DESC', (error, results) => {
@@ -8,24 +8,28 @@ const all_reports_GET = (req, res) => {
 }
 
 const insert_report_GET = (req, res) => {
-    res.render('reports/insertReport', { title: 'Insert a new report' });
+    res.render('reports/insertReport', { 
+        title: 'Insert a new report',
+        err: '' 
+    });
 };
 
 const insert_report_POST = (req, res) => {
-    console.log(req.file);
-    if (!req.file) {
+    if(req.fileValidationError) {
+        res.render('reports/insertReport', { 
+            title: 'Insert a new report',
+            err: req.fileValidationError
+        })
+    } else if (!req.file) {
         db.query(`INSERT INTO reports (place, snippet) VALUES ("${req.body.place}", "${req.body.snippet}")`, (error) => {
             if (error) console.log(error);
             res.status(200).redirect('allReports');
         });
-    } else if (req.file.filename) {
-        console.log(req.file.filename);
-        console.log(req.file.mimetype);
-
-        res.status(200).json({
-            message: "uploaded",
-            url: req.file.filename
-        })
+    } else if (req.file) {
+        db.query(`INSERT INTO reports (place, snippet) VALUES ("${req.body.place}", "${req.body.snippet}")`, (error) => {
+            if (error) console.log(error);
+            res.status(200).redirect('allReports');
+        });
     }
 };
 
