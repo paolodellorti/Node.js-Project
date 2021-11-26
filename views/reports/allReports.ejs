@@ -7,16 +7,21 @@
   <div class="blogs content">
     <h2>All Reports</h2>
 
-    <% if (reports.length > 0) { %>
-      <% reports.forEach(report => { %>
-        <a class="single" href="/reports/singleReport/<%= report.id %>">
-          <h3 class="title"><%= report.place %></h3>
-          <p class="snippet"><%= report.snippet %></p>
-          <p class="snippet">Posted on <%= report.report_time.getDate() %>/<%= report.report_time.getMonth() + 1 %>/<%= report.report_time.getFullYear() %></p>
-        </a>
-      <% }) %>
+    <% if (!error) { %>
+
+      <% if (reports.length > 0) { %>
+        <% reports.forEach(report => { %>
+          <a class="single" href="/reports/singleReport/<%= report.id %>">
+            <h3 class="title"><%= report.place %></h3>
+            <p class="snippet"><%= report.description %></p>
+            <p class="snippet">Posted on <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p>There are no reports to display...</p>
+      <% } %>
     <% } else { %>
-      <p>There are no reports to display...</p>
+      <p><%= error %></p>
     <% } %>
     
   </div>

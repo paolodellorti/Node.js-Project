@@ -3,14 +3,14 @@ const router = express.Router();
 const reportsControllers = require('../controllers/reportsControllers')
 const upload = require('../helpers/imageUploader')
 
-router.get('/allReports', reportsControllers.all_reports_GET);
+router.get('/allReports', reportsControllers.GETallReports);
 
-router.get('/insertReport', reportsControllers.insert_report_GET);
+router.get('/insertReport', reportsControllers.GETinsertReport);
 
-router.post('/insertReport', upload.single('image'), reportsControllers.insert_report_POST);
+router.post('/insertReport', upload.single('image'), reportsControllers.POSTsingleReport);
 
-router.get('/singleReport/:id', reportsControllers.single_report_GET);
+router.get('/singleReport/:id', reportsControllers.GETsingleReport);
 
-router.get('/singleReport/delete/:id', reportsControllers.single_report_DELETE);
+router.delete('/singleReport/:id', reportsControllers.DELETEsingleReport);
 
 module.exports = router;

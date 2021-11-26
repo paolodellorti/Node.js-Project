@@ -115,7 +115,6 @@
       font-size: 0.8em;
     }
 
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: crimson;
-      opacity: 1; /* Firefox */
+    .reportImages {
+      max-height: 500px;
     }
