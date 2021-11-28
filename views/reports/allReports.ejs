@@ -13,7 +13,11 @@
         <% reports.forEach(report => { %>
           <a class="single" href="/reports/singleReport/<%= report.id %>">
             <h3 class="title"><%= report.place %></h3>
-            <p class="snippet">By <%= report.user %>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
+            <p class="snippet">
+              <% if (report.image) { %>
+                &#128247; 
+              <% } %> 
+            By <%= report.user %>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
           </a>
         <% }) %>
       <% } else { %>

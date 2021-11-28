@@ -29,10 +29,6 @@
       font-style: normal;
     }
 
-    .single:hover {
-      font-style: italic;
-    }
-
     /* nav & footer styles */
     nav {
       display: flex;
@@ -88,7 +84,17 @@
     /* details styles */
     .details{
       position: relative;
+      background-color: rgba(0,0,0,0.05);
+      padding: 30px;
+      padding-top: 10px;
+      border-left: 6px solid crimson;
     }
+
+    .details h2 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
     .delete{
       position: absolute;
       top: 0;

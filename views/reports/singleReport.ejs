@@ -10,7 +10,7 @@
     <div class="content">
       <p><%= report.description %></p>
       <% if (report.image) { %>
-        <img class="reportImages" src="/db/reportImages/<%= report.image %>" alt="report">
+        <img class="reportImages" src="/reportImages/<%= report.image %>" alt="report">
       <% } %>
     </div>
     <a class="delete" data-doc="<%= report.id %>">

@@ -1,13 +1,13 @@
 const multer = require("multer");
 const path = require("path");
 const fs = require('fs');
-const imgsDir = './public/db/reportImages';
+const imgsDir = './public/reportImages';
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const existsDir = fs.existsSync(imgsDir)
         if (!existsDir) {
-            fs.mkdirSync(imgsDir, { recursive: true }, function(err) {
+            fs.mkdirSync(imgsDir, function(err) {
                 if (err) {
                   console.log(err);
                 } else {
