@@ -5,7 +5,7 @@
   <%- include("../partials/nav.ejs") %>
 
   <div class="blogs content">
-    <h2>All Reports</h2>
+  <h2><%= title %></h2>
 
     <% if (!error) { %>
 
@@ -13,8 +13,7 @@
         <% reports.forEach(report => { %>
           <a class="single" href="/reports/singleReport/<%= report.id %>">
             <h3 class="title"><%= report.place %></h3>
-            <p class="snippet"><%= report.description %></p>
-            <p class="snippet">Posted on <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
+            <p class="snippet">By <%= report.user %>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
           </a>
         <% }) %>
       <% } else { %>

@@ -6,6 +6,7 @@
 
   <div class="details content">
     <h2><%= report.place %></h2>
+    <p class="snippet">By <a href="/reports/allReports/<%= report.user %>"><%= report.user %></a>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
     <div class="content">
       <p><%= report.description %></p>
       <% if (report.image) { %>
@@ -13,7 +14,7 @@
       <% } %>
     </div>
     <a class="delete" data-doc="<%= report.id %>">
-      <img src="/trashIcon.png" alt="trash icon">
+      <img src="/images/trashIcon.png" alt="trash icon">
     </a>
   </div>
 

@@ -4,10 +4,9 @@ const dotenv = require('dotenv').config();
 const reportsRoutes = require('./routes/reportsRoutes');
 const { sequelize } = require('./models');
 
+// ----- SETTINGS -----
 const server = express();
 const port = process.env.PORT || 8080;
-
-// ----- SETTINGS -----
 server.set('view engine', 'ejs');
 
 // ----- MIDDLEWARES -----
@@ -17,7 +16,7 @@ server.use(morgan('dev'));
 
 // ----- ROUTES -----
 server.get('/', (req, res) => {
-    res.render('index', { title: "Welcome" })
+    res.render('index', { title: "Welcome", error: "" })
 });
 
 server.use('/reports', reportsRoutes);
@@ -28,8 +27,8 @@ server.use((req, res) => {
 
 // ----- CONNECTING SERVER AND DB -----
 server.listen(port, async () => { 
-    console.log(`Server connected on http://localhost:${port}`);
+    console.log(`Server listening on http://localhost:${port}`);
     await sequelize.authenticate();
-    console.log("Db connected");
+    console.log("Db authenticated");
 });
   

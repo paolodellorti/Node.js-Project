@@ -6,15 +6,35 @@
       font-family: 'Noto Serif', serif;
       max-width: 1200px;
     }
-    p, h1, h2, h3, a, ul{
+    a {
       margin: 0;
-      padding: 0;
-      text-decoration: none;
+      padding: 1px;
       color: #222;
+      font-style: italic;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: crimson;
+    }
+
+    .normal {
+      font-style: normal;
+      text-decoration: none;
+    }
+
+    .single {
+      text-decoration: none;
+      background-color: rgba(0,0,0,0.05);
+      font-style: normal;
+    }
+
+    .single:hover {
+      font-style: italic;
     }
 
     /* nav & footer styles */
-    nav{
+    nav {
       display: flex;
       justify-content: space-between;
       margin-bottom: 60px;
@@ -80,11 +100,18 @@
       cursor: pointer;
       box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
     }
-
+    .create-blog h2 {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+    
     /* create styles */
-    .create-blog form{
+    .create-blog form,
+    .create-blog h2,
+    .create-blog button {
       max-width: 400px;
       margin: 0 auto;
+      display: block;
     }
     .create-blog input,
     .create-blog textarea{
@@ -100,7 +127,17 @@
     textarea{
       height: 120px;
     }
-    .create-blog button{
+    
+    #positionButton {
+      margin-top: 5px;
+      background: crimson;
+      color: white;
+      padding: 6px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    #submitButton {
       margin-top: 20px;
       background: crimson;
       color: white;
@@ -108,6 +145,7 @@
       border: 0;
       font-size: 1.2em;
       cursor: pointer;
+      width: 100%;
     }
 
     .UploadError {

@@ -4,20 +4,52 @@
 <body>
   <%- include("../partials/nav.ejs") %>
 
-  <div class="create-blog content">
+
+  <div class="create-blog content">  
+    <h2>Insert a new report</h2>
+    <button id="positionButton">Get your position</button>
     <form action="/reports/insertReport" method="post" enctype="multipart/form-data">
       <label for="title">Place:</label>
-      <input type="text" id="title" name="place" required>
+      <input type="text" id="title" name="place" class="inputText" required>
       <label for="snippet">Description:</label>
       <input type="text" id="snippet" name="description" required>
+      <label for="snippet">Your name:</label>
+      <input type="text" id="snippet" name="user" required>
       <input type="file"  name="image" accept='image/*'>
       <% if (error) { %>
         <p class="uploadError"><%= error %></p>
       <% } %>
-      <input type="submit" value="Upload" />
+      <button type="submit" value="Upload" id="submitButton">Submit</button>
     </form>
   </div>
 
   <%- include("../partials/footer.ejs") %>
+
+  <script>
+    const positionButton = document.querySelector('#positionButton');
+    const inputText = document.querySelector('.inputText');
+
+    positionButton.onclick =  () => {
+      if(!navigator.geolocation) {
+            this.value = "Geolocation not available!"
+            this.style.color = "#ee6352";
+        } else {
+            const promise = new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+            let coords;
+            
+            promise
+                .then(position => {
+                  coords = position.coords.latitude + "," + position.coords.longitude;
+                  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords}&key=AIzaSyBlA5LTOxK2gO-0ohCdUnnz8mnc_YWm9Mk`)
+                      .then(response => response.json())
+                      .then(datas => { 
+                        inputText.value = datas.results[0].formatted_address;
+                      })
+                      .catch(error => console.log(error));
+                })
+                .catch(error => console.log(error));
+        }
+    };
+  </script>
 </body>
 </html>

@@ -1,9 +1,21 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require('fs');
+const imgsDir = './public/db/reportImages';
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/db/reportImages');
+        const existsDir = fs.existsSync(imgsDir)
+        if (!existsDir) {
+            fs.mkdirSync(imgsDir, { recursive: true }, function(err) {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("New directory successfully created.");
+                }
+            })
+        }
+        cb(null, imgsDir);
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));
