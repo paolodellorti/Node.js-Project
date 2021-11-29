@@ -142,17 +142,26 @@
       margin: 0 auto;
       display: block;
     }
-    .create-blog input,
-    .create-blog textarea{
+    .create-blog {
+      background-color: rgba(0,0,0,0.05);
+      padding-top: 15px;
+      padding-bottom: 25px;
+      margin: 0 auto;
+      width: 50%;
+      border-left: 6px solid 	crimson;
+    }
+
+    .create-blog input {
       display: block;
       width: 100%;
       margin: 10px 0;
       padding: 8px;
+      height: 35px;
     }
     .create-blog select {
       margin-top: 10px;
       width: 100%;
-      height: 30px;
+      height: 35px;
     }
     .create-blog label{
       display: block;
