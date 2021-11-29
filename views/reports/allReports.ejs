@@ -11,8 +11,9 @@
 
       <% if (reports.length > 0) { %>
         <% reports.forEach(report => { %>
-          <a class="single" href="/reports/singleReport/<%= report.id %>">
+          <a class="single <%= report.pollution %>" href="/reports/singleReport/<%= report.id %>">
             <h3 class="title"><%= report.place %></h3>
+            <p id="level"><%= report.pollution %> pollution</p>
             <p class="snippet">
               <% if (report.image) { %>
                 &#128247; 

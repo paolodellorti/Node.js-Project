@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: DataTypes.STRING
       },
+      pollution: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
       description: {
         allowNull: false,
         type: DataTypes.STRING

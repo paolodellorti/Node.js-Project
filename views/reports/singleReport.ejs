@@ -4,10 +4,10 @@
 <body>
   <%- include("../partials/nav.ejs") %>
 
-  <div class="details content">
+  <div class="details content <%= report.pollution %>">
     <h2><%= report.place %></h2>
-    <p class="snippet">By <a href="/reports/allReports/<%= report.user %>"><%= report.user %></a>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
     <div class="content">
+      <p id="level"><%= report.pollution %> pollution</p>
       <p><%= report.description %></p>
       <% if (report.image) { %>
         <img class="reportImages" src="/reportImages/<%= report.image %>" alt="report">
@@ -16,6 +16,7 @@
     <a class="delete" data-doc="<%= report.id %>">
       <img src="/images/trashIcon.png" alt="trash icon">
     </a>
+    <p class="snippet">By <a href="/reports/allReports/<%= report.user %>"><%= report.user %></a>, <%= report.createdAt.getDate() %>/<%= report.createdAt.getMonth() + 1 %>/<%= report.createdAt.getFullYear() %></p>
   </div>
 
   <%- include("../partials/footer.ejs") %>

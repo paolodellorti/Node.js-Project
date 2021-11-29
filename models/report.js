@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      pollution: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
       description: {
         type: DataTypes.STRING,
         allowNull: false

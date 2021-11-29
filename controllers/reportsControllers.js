@@ -67,7 +67,7 @@ const GETinsertReport = (req, res) => {
 
 const POSTsingleReport = async (req, res) => {
     try {
-        const { place, description, user } = req.body;
+        const { place, pollution, description, user } = req.body;
         if(req.fileValidationError) {
             return res
                 .render('reports/insertReport', { 
@@ -76,13 +76,13 @@ const POSTsingleReport = async (req, res) => {
                 });
 
         } else if (!req.file) {
-            await Report.create({ place, description, user });
+            await Report.create({ place, pollution, description, user });
             return res
                     .status(300)
                     .redirect('allReports');
         } else if (req.file) {
             const image = req.file.filename;
-            await Report.create({ place, description, user, image });
+            await Report.create({ place, pollution, description, user, image });
     
             return res
                     .status(300)
@@ -123,14 +123,12 @@ const deleteImage = async (id) => {
     const report = await Report.findByPk(id);
     const image = report.image;
     if (image) {
-        console.log(report.image + "hoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
-        const imgDir = `./public/db/reportImages/${image}`;
+        const imgDir = `./public/reportImages/${image}`;
         const esxistsImg = fs.existsSync(imgDir)
     
         console.log(esxistsImg);
     
         if (esxistsImg) {
-            console.log("la devo cancaelllare");
             fs.unlinkSync(imgDir);
             return "Deleted";
         } else {

@@ -9,12 +9,21 @@
     <h2>Insert a new report</h2>
     <button id="positionButton">Get your position</button>
     <form action="/reports/insertReport" method="post" enctype="multipart/form-data">
-      <label for="title">Place:</label>
+      <label for="title">Place</label>
       <input type="text" id="title" name="place" class="inputText" required>
-      <label for="snippet">Description:</label>
+      <label for="pollution">Type of pollution</label>
+      <select name="pollution" required>
+        <option>Air</option>
+        <option>Chemicals</option>
+        <option>Waste</option>
+        <option>Water</option>
+        <option>Other</option>
+      </select>
+      <label for="description">Description</label>
       <input type="text" id="snippet" name="description" required>
-      <label for="snippet">Your name:</label>
+      <label for="user">Your name</label>
       <input type="text" id="snippet" name="user" required>
+      <label for="image">Picture (optional)</label>
       <input type="file"  name="image" accept='image/*'>
       <% if (error) { %>
         <p class="uploadError"><%= error %></p>
