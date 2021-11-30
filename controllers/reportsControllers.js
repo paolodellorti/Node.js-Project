@@ -27,7 +27,6 @@ const GETallByUser = async (req, res) => {
     try {
         const user = req.params.user;
         const reports = await Report.findAll({ order: [ ['createdAt', 'DESC'] ], where: { user } });
-        console.log(reports);
         if (reports.length === 0) {
             return res
             .status(200)
