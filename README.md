@@ -16,7 +16,7 @@ gh repo clone paolodellorti/Node.js-Project
 
 <br>
 
-And install the project with
+Now install the project with
 ```
 npm install
 ```
