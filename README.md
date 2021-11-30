@@ -16,6 +16,14 @@ gh repo clone paolodellorti/Node.js-Project
 
 <br>
 
+And install the project with
+```
+npm install
+```
+
+
+<br>
+
 Ok, you've got the app folder with all the files we need. 
 Inside the *config* folder, open *config.json* and put your MySQL credentials
 ```
