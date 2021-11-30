@@ -24,7 +24,7 @@ npm install
 
 <br>
 
-Ok, you've got the app folder with all the files we need. 
+Ok, you've got the app folder with all the files you need. 
 Inside the *config* folder, open *config.json* and put your MySQL credentials
 ```
 {
