@@ -32,7 +32,7 @@ Inside the *config* folder, open *config.json* and put your MySQL credentials
 
 <br>
 
-Let's create the database *reportsDb*! Open a terminal in project's main folder and type
+Let's create the database *reportsDb*. Open a terminal in project's main folder and type
 ```
 sequelize db:create
 ```
