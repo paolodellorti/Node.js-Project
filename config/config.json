@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "psw",
+    "username": "[YOUR_USERNAME]",
+    "password": "[YOUR_PASSWORD]",
     "database": "reportsDb",
     "host": "127.0.0.1",
     "dialect": "mysql"
