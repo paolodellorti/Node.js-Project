@@ -49,7 +49,8 @@
             promise
                 .then(position => {
                   coords = position.coords.latitude + "," + position.coords.longitude;
-                  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords}&key=AIzaSyBlA5LTOxK2gO-0ohCdUnnz8mnc_YWm9Mk`)
+                  const API_KEY = '<%= process.env.GOOGLE_MAPS_API_KEY %>';
+                  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords}&key=${API_KEY}`)
                       .then(response => response.json())
                       .then(datas => { 
                         inputText.value = datas.results[0].formatted_address;
