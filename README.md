@@ -40,6 +40,13 @@ Inside the *config* folder, open *config.json* and put your MySQL credentials
 
 <br>
 
+Now create a new .env file with your Google Maps API key. Without this step app will still work but geolocation don't
+```
+GOOGLE_MAPS_API_KEY = yourGoogleMapsApiKey
+```
+
+<br>
+
 Let's create the database *reportsDb*. Open a terminal in project's main folder and type
 ```
 sequelize db:create
