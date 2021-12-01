@@ -40,7 +40,7 @@ Inside the *config* folder, open *config.json* and put your MySQL credentials
 
 <br>
 
-Now create a new .env file with your Google Maps API key. Without this step app will still work but geolocation don't
+Now create a new .env file with your Google Maps API key. Without this step app still work but geolocation don't
 ```
 GOOGLE_MAPS_API_KEY = yourGoogleMapsApiKey
 ```
