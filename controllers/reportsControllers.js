@@ -70,7 +70,7 @@ const POSTsingleReport = async (req, res) => {
         if(req.fileValidationError) {
             return res
                 .render('reports/insertReport', { 
-                    title: 'Insert a new report',
+                    title: 'Error',
                     error: req.fileValidationError
                 });
         } else if (!req.file) {
@@ -91,7 +91,7 @@ const POSTsingleReport = async (req, res) => {
         return res
                 .status(500)
                 .render('reports/insertReport', { 
-                    title: 'Insert a new report',
+                    title: 'Error',
                     error
                 });
     }
@@ -106,7 +106,7 @@ const GETsingleReport = async (req, res) => {
                 .status(200)
                 .render('reports/singleReport', {
                     report,
-                    title: `Report from ${report.place}`
+                    title: `Report by ${report.user}`
                 });
                 
     } catch(error) {
