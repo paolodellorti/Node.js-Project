@@ -1,6 +1,12 @@
 # POLLUTION REPORTER
 A node application for reporting pollution cases around the world.
+
+<br>
+
 ___
+
+<br>
+
 ## SET UP
 ### Requirements
 You need to have installed on your pc
@@ -75,3 +81,7 @@ node server
 ```
 and try it on your browser  at
 http://localhost:8080/
+___
+## HOW IT LOOKS
+### Home page
+![home](https://user-images.githubusercontent.com/84512004/144330324-768114cc-eb39-4062-a535-a29f381b64b2.png)
