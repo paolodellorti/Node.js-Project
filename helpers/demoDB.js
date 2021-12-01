@@ -5,7 +5,7 @@ const createDemoDB = async () => {
     await Report.create({
         place: "Via di Torrenova, 60, 00133 Roma RM, Italia",
         pollution: "Waste",
-        description: `Domestic waste is abandoned along the street,
+        description: `Domestic waste are abandoned along the street,
                       very close to a natural park.`,
         user: "Marco",
         image: "1638146218464.jpeg",
