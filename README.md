@@ -1,12 +1,6 @@
 # POLLUTION REPORTER
 A node application for reporting pollution cases around the world.
-
-<br>
-
 ___
-
-<br>
-
 ## SET UP
 ### Requirements
 You need to have installed on your pc
@@ -85,3 +79,9 @@ ___
 ## HOW IT LOOKS
 ### Home page
 ![home](https://user-images.githubusercontent.com/84512004/144330324-768114cc-eb39-4062-a535-a29f381b64b2.png)
+### All reports
+![allReports](https://user-images.githubusercontent.com/84512004/144330652-f92b7ab7-242b-4f81-9347-23f803f98ed1.png)
+### Single report
+![singleReport](https://user-images.githubusercontent.com/84512004/144330669-cfa533b1-9dab-4ea9-a2e5-a65b75a7248f.png)
+### Insert report
+![insertReport](https://user-images.githubusercontent.com/84512004/144330689-7da54802-3644-46cd-87cf-2a45a8024bd4.png)
