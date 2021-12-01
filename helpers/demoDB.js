@@ -1,4 +1,4 @@
-const { sequelize, Report } = require('../models');
+const { Report } = require('../models');
 
 const createDemoDB = async () => {
     

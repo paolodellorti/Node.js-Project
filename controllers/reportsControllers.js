@@ -1,4 +1,4 @@
-const { sequelize, Report } = require('../models');
+const { Report } = require('../models');
 const fs = require('fs');
 
 const GETallReports = async (req, res) => {
@@ -73,7 +73,6 @@ const POSTsingleReport = async (req, res) => {
                     title: 'Insert a new report',
                     error: req.fileValidationError
                 });
-
         } else if (!req.file) {
             await Report.create({ place, pollution, description, user });
             return res
@@ -119,20 +118,24 @@ const GETsingleReport = async (req, res) => {
 };
 
 const deleteImage = async (id) => {
-    const report = await Report.findByPk(id);
-    const image = report.image;
-    if (image) {
-        const imgDir = `./public/reportImages/${image}`;
-        const esxistsImg = fs.existsSync(imgDir)
-    
-        console.log(esxistsImg);
-    
-        if (esxistsImg) {
-            fs.unlinkSync(imgDir);
-            return "Deleted";
-        } else {
-            return "File doesn't extists";
+    try {
+        const report = await Report.findByPk(id);
+        const image = report.image;
+        if (image) {
+            const imgDir = `./public/reportImages/${image}`;
+            const esxistsImg = fs.existsSync(imgDir)
+        
+            console.log(esxistsImg);
+        
+            if (esxistsImg) {
+                fs.unlinkSync(imgDir);
+                return "Deleted";
+            } else {
+                return "File doesn't extists";
+            }
         }
+    } catch (error) {
+        return error
     }
 }
 
